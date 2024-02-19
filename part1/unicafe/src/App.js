@@ -5,6 +5,13 @@ const Statistics = (props) => {
   console.log(props.good);
   const average = (props.good - props.bad) / (props.good + props.bad + props.neutral)
   const positive = props.good / (props.good + props.bad + props.neutral) * 100
+  if (all === 0) {
+    return (
+      <div>
+        No feedback given
+      </div>
+    )
+  }
   return (
     <div>
       <p>good {props.good}</p>
