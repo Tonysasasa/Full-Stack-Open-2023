@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 const StatisticLine = ({ text, value }) => {
   if (text === "positive") {
-    return <p>{text} {value}%</p>
+    return <tr><td>{text} {value} %</td></tr>
   }
-  return <p>{text} {value}</p>
+  return <tr><td>{text} {value}</td></tr>
 }
 
 const Statistics = (props) => {
