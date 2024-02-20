@@ -16,8 +16,11 @@ const Button = ({ onClick, text }) => (
   </button>
 )
 
+let maxValue = 0;
+let target = 0;
 const arrHelper = (arr, index) => {
   arr[index] += 1
+  return [Math.max(...arr), arr.indexOf(Math.max(...arr))]
 }
 
 const points = new Uint8Array(anecdotes.length);
@@ -30,19 +33,24 @@ const App = () => {
 
   const handleVoteClick = () => {
     setVote(vote + 1);
-    arrHelper(copy, selected);
-    //console.log(copy);
+    [maxValue, target] = arrHelper(copy, selected);
+    //console.log(copy); // for debug
   }
 
   const handleButtonClick = () => { setSelected(Math.floor(Math.random() * anecdotes.length)) }
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
       <p>has {copy[selected]} votes</p>
 
       <Button onClick={handleVoteClick} text="vote" />
       <Button onClick={handleButtonClick} text="next anecdotes" />
+
+      <h1>Anecdote with most votes</h1>
+      <p>{anecdotes[target]}</p>
+      <p>has {maxValue} votes</p>
     </div>
   )
 }
