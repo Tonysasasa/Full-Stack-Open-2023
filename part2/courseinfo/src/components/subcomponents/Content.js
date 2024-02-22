@@ -8,5 +8,4 @@ const Content = ({ contents }) =>
         )}
     </div>
 
-
 export default Content
