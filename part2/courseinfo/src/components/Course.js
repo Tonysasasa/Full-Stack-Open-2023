@@ -7,9 +7,14 @@ const Course = ({ courses }) => {
 
     return (
         <div>
-            <Header course={courses} />
-            <Content contents={courses.parts} />
-            <Total total={courses.parts} />
+            <h1>Web development curriculum</h1>
+            {courses.map(course =>
+                <div key={course.id}>
+                    <Header course={course} />
+                    <Content contents={course.parts} />
+                    <Total total={course.parts} />
+                </div>
+            )}
         </div>
     )
 }

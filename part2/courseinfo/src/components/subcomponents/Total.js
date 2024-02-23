@@ -1,6 +1,6 @@
 import React from 'react'
-import Part from './Part'
-let sum = 0;
+//import Part from './Part'
+//let sum = 0;
 const Total = ({ total }) => {
     // total.forEach((element) => (sum += element.exercises));
     // return (
@@ -10,7 +10,7 @@ const Total = ({ total }) => {
     const val =
         total.reduce((s, p) => s + p.exercises, 0)
     return (
-        <p>Number of exercises {val}</p>
+        <p><b>total of {val} exercises</b></p>
     )
 }
 export default Total
